@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     CreatGrid(16);
+    
 })
 
 var gridSizes = document.querySelectorAll('.options');
@@ -22,10 +23,13 @@ function CreatGrid(size) {
     for (let i = 0; i < blocks; i++) {
         let block = document.createElement("div");
         box.insertAdjacentElement("beforeend", block);
+        block.addEventListener('mouseover', function () {
+            block.style.backgroundColor = 'grey';
+        })
     }
 }
 
-//as we get the grid size by buttons, it does not need a validate input 
-//anymore.
+
+
 
 
