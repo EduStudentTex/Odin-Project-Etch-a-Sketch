@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
     
 })
 
+var colorPicker = document.querySelector('.colorPicker');
+var colorSelected;
+
 var gridSizes = document.querySelectorAll('.options');
 gridSizes.forEach(function(option) {
     option.addEventListener('click', function () {
@@ -21,10 +24,18 @@ function CreatGrid(size) {
     let blocks = size*size;
 
     for (let i = 0; i < blocks; i++) {
+        
+        colorPicker.addEventListener('input', function() {
+            colorSelected = colorPicker.value; 
+            console.log(colorPicker.value);
+        });
+        
         let block = document.createElement("div");
+
         box.insertAdjacentElement("beforeend", block);
+        
         block.addEventListener('mouseover', function () {
-            block.style.backgroundColor = 'grey';
+            block.style.backgroundColor = colorSelected;
         })
     }
 }
